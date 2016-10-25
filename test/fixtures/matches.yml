@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-10-21
+  result: false
+  round: MyString
+  idgame: MyString
+  team_id: 
+  team_id: 
+  phase_id: 
+
+two:
+  date: 2016-10-21
+  result: false
+  round: MyString
+  idgame: MyString
+  team_id: 
+  team_id: 
+  phase_id: 

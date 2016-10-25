@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  games: 1
+  wins: 1
+  losses: 1
+
+two:
+  games: 1
+  wins: 1
+  losses: 1

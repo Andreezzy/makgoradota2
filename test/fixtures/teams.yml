@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  logo: MyString
+  semester: MyString
+  perfomance_id: 
+  key_id: 
+  phase_id: 
+
+two:
+  name: MyString
+  logo: MyString
+  semester: MyString
+  perfomance_id: 
+  key_id: 
+  phase_id: 

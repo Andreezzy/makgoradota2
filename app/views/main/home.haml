@@ -1,0 +1,6 @@
+%h1 Welcome
+%p TORNEO DE DOTA 2 MAKGORA
+-unless user_signed_in?
+	=link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path
+=link_to "Inscribir", inscribir_path
+=link_to "Unirse a Equipo", unirse_path

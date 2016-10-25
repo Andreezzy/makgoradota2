@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+<h2>Informacion del Equipo</h2>
+<p>
+  <strong>Nombre:</strong>
+  <%= @team.name %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @team.logo %>
+</p>
+
+<p>
+  <strong>Semestre:</strong>
+  <%= @team.semester %>
+</p>
+
+<p>
+  <strong>Perfomance:</strong>
+  <%= @team.perfomance %>
+</p>
+
+<p>
+  <strong>Key:</strong>
+  <%= @team.key.des %>
+</p>
+
+<p>
+  <strong>Phase:</strong>
+  <%= @team.phase %>
+</p>
+
+<h1>Lista de Jugadores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>DNI Dotero</th>
+      <th>Nickname</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Telefono</th>
+      <th>Team</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.dni_dotero %></td>
+        <td><%= player.nickname %></td>
+        <td><%= player.name %></td>
+        <td><%= player.lastname %></td>
+        <td><%= player.phone %></td>
+        <td><%= player.team.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

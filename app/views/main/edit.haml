@@ -1,0 +1,23 @@
+=@user.player.id
+=form_tag "/custom_sign_up", method: :post do
+  %ul
+    -@user.errors.full_messages.each do |error|
+      %li= error
+  %div
+    %label{for:"nickname"} Nickname de usuario
+    =text_field_tag "player[nickname]", @user.player.nickname
+  %div
+    %label{for:"dni_dotero"} DNI DOTERO
+    =text_field_tag "player[dni_dotero]", @user.player.dni_dotero, required: true
+  %div
+    %label{for:"name"} Nombre
+    =text_field_tag "player[name]", @user.player.name
+  %div
+    %label{for:"lastname"} Apellidos
+    =text_field_tag "player[lastname]", @user.player.lastname
+  %div
+    %label{for:"phone"} Telefono
+    =text_field_tag "player[phone]", @user.player.phone
+
+  %div
+    =submit_tag "Completar registro"

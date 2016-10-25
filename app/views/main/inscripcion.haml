@@ -1,0 +1,8 @@
+%h2 INGRESE SU CODIGO DE INSCRIPCION
+=form_tag "/check_ticket", method: :post do
+
+  %div
+    %label{for:"des"} Key
+    =text_field_tag "key[des]", nil, :required => true
+  %div
+    =submit_tag "Enviar"

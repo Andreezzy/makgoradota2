@@ -1,0 +1,25 @@
+!!! 5
+%html
+	%head
+		%title Torneo de Dota
+		=stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+		=javascript_include_tag 'application', 'data-turbolinks-track' => true
+		=csrf_meta_tags
+	%body
+	-if user_signed_in?
+		-if current_user.nil?
+			-if current_user.image.empty?
+				%img{ src: "https://www.fanspole.com/assets/default_user-c283cfbc3d432e22b1d2f1eef515d0b9.png", width: "25", height: "25"}
+			-else
+				=image_tag(current_user.image)
+		=current_user.name
+		=link_to "Cerrar Sesión", destroy_user_session_path, method: :delete
+		-unless current_user.team_id.nil?
+			%h2 Mi Equipo
+			=link_to "#{current_user.team.name}", team_path(current_user.team_id)
+	-else
+		=link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path
+	%div{style:" #{"display:none;" if alert.nil? && notice.nil?} "}
+		%p.notice= notice
+		%p.alert= alert
+	= yield
