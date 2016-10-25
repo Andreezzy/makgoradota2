@@ -10,8 +10,8 @@
 		-if current_user.nil?
 			-if current_user.image.empty?
 				%img{ src: "https://www.fanspole.com/assets/default_user-c283cfbc3d432e22b1d2f1eef515d0b9.png", width: "25", height: "25"}
-			-else
-				=image_tag(current_user.image)
+		-else
+			=image_tag(current_user.image)
 		=current_user.name
 		=link_to "Cerrar Sesión", destroy_user_session_path, method: :delete
 		-unless current_user.team_id.nil?
