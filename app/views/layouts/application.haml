@@ -7,21 +7,30 @@
 	%body
 	%nav
 		%div{ :class => "nav-wrapper" }
-			%a{:href => "#!", :class => "brand-logo"}Logo
-			%a{:href => "#!", "data-activates" =>"mobile-demo" ,:class => "button-collapse"}
+
+			%a{:href => "#", :class => "brand-logo"}Logo
+
+			%a{:href => "#", "data-activates" => "mobile-demo" , :class => "button-collapse"}
 				%i{:class => "material-icons"}menu
+
 			%ul{:class => "right hide-on-med-and-down"}
 				%li
-					%a{:href=>"#"}Hola
+					%a{:href=>"#"}
+						=link_to "Equipos", teams_path
+
 				%li
 					%a{:href=>"#"}Hola
+
 				%li
 					%a{:href=>"#"}Hola
+
 			%ul{:class => "side-nav", :id => "mobile-demo" }
 				%li
 					%a{:href=>"#"}Hola
+
 				%li
 					%a{:href=>"#"}Hola
+					
 				%li
 					%a{:href=>"#"}Hola
 
