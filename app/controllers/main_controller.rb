@@ -1,13 +1,13 @@
 class MainController < ApplicationController
-	#before_action :authenticate_user!, only: [:unirse]
+	before_action :authenticate_admin!, only: [:generar, :crear_ticket]
+  before_action :complete_register!, only: [:home, :generar, :bases, :inscripcion, :unirse]
   def home
-    if user_signed_in?
-      if current_user.player.dni_dotero.nil?
-        flash[:alert] = "DATOS INCOMPLETOS"
-        redirect_to "/completar_registro"
-        return
-      end
-    end
+  end
+  def bases
+  end
+  def generar
+  end
+  def crear_ticket
     
   end
   def edit
@@ -20,7 +20,6 @@ class MainController < ApplicationController
   	end
     unless current_user.team.nil?
       flash[:alert] = "YA REGISTRASTE UN EQUIPO"
-      redirect_to root_path
       return
     end
     @team = Team.new
