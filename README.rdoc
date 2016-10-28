@@ -31,4 +31,5 @@ Please feel free to use a different markup language if you do not plan to run
 docker-compose up
 docker-compose exec --user $(id -u):$(id -g) rails bash
 docker-compose exec --user $(id -u):$(id -g) mysql bash
+docker-compose run rails rake db:migrate
 mysql -u root -p 
