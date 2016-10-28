@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/inscribir', to: "main#inscripcion"
   get '/unirse', to: "main#unirse"
   post '/check_ticket', to: "main#check_ticket"
+  post '/create_ticket', to: "main#crear_ticket"
+  get '/bases', to: "main#bases"
+  get '/generar', to: "main#generar"
   #get '/check_ticket', to: "main#inscripcion"
   
   resources :teams do

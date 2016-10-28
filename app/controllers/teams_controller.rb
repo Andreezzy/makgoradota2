@@ -1,7 +1,8 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :show, :create]
-  before_action :authenticate_admin!, except: [:new, :show, :create]
+  before_action :authenticate_admin!, except: [:new, :show, :create, :index]
+  before_action :complete_register!, only: [:index]
   # GET /teams
   # GET /teams.json
   def index
@@ -11,7 +12,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-    unless current_user.team_id == params[:id].to_i && current_user.is_user?
+    unless current_user.team_id == params[:id].to_i && current_user.is_user? ||  current_user.is_admin?
       redirect_to root_path
     end
     @player = Player.new
