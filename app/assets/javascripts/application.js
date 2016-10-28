@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//Declarations
+$(document).ready(function(){
+	$(".button-collapse").sideNav();
+});

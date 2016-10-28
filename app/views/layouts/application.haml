@@ -6,6 +6,25 @@
 		=javascript_include_tag 'application', 'data-turbolinks-track' => true
 		=csrf_meta_tags
 	%body
+	%nav
+		%div{ :class => "nav-wrapper" }
+			%a{:href => "#!", :class => "brand-logo"}Logo
+			%a{:href => "#!", "data-activates" =>"mobile-demo" ,:class => "button-collapse"}
+				%i{:class => "material-icons"}menu
+			%ul{:class => "right hide-on-med-and-down"}
+				%li
+					%a{:href=>"#"}Hola
+				%li
+					%a{:href=>"#"}Hola
+				%li
+					%a{:href=>"#"}Hola
+			%ul{:class => "side-nav", :id => "mobile-demo" }
+				%li
+					%a{:href=>"#"}Hola
+				%li
+					%a{:href=>"#"}Hola
+				%li
+					%a{:href=>"#"}Hola
 	-if user_signed_in?
 		-if current_user.image.empty?
 			%img{ src: "https://www.fanspole.com/assets/default_user-c283cfbc3d432e22b1d2f1eef515d0b9.png", width: "25", height: "25"}

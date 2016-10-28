@@ -5,7 +5,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
+gem 'mysql2', '~> 0.3.18', group: :development
+# Gem for postgresql
 gem 'pg', '~> 0.18.1', group: :production
+# Use it for Heroku Deployment
 gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -25,10 +28,17 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+### Property Gems ###
+#Gem  for manage sessions
 gem 'devise'
+#Template building
 gem 'haml'
+#API of facebook
 gem 'omniauth-facebook'
+#React Gem
 gem 'react-rails'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -49,4 +59,4 @@ group :development, :test do
   gem 'spring'
 end
 
-ruby "2.2.1"
+ruby "2.2.5"
