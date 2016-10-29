@@ -8,7 +8,7 @@
 	%body
 		%nav
 			%div{ :class => "nav-wrapper grey darken-4"}
-				%a{:href => "#", :class => "brand-logo"}
+				%a{:href => "/", :class => "brand-logo"}
 					%img{:id => "logo" ,:class =>"valign responsive-img",src: "http://i.imgur.com/3DTThZz.png"}
 				%a{:href => "#", "data-activates" => "mobile-demo" , :class => "button-collapse"}
 					%i{:class => "material-icons"}menu
@@ -59,7 +59,29 @@
 							=link_to "Inscribir", inscribir_path
 						%li
 							=link_to "Unirse a Equipo", unirse_path
-	
+					-if user_signed_in?
+						-unless current_user.team_id.nil?
+							%li
+								=link_to "TEAM: #{current_user.team.name}", team_path(current_user.team_id)
+						-else
+							%li
+								=link_to "Inscribir", inscribir_path
+							%li
+								=link_to "Unirse a Equipo", unirse_path
+						-if current_user.is_admin?
+							%li
+								=link_to "Generar KEY", generar_path
+						-if current_user.image.empty?
+							%li
+								%img{:class => "circle responsive-img" ,src: "https://www.fanspole.com/assets/default_user-c283cfbc3d432e22b1d2f1eef515d0b9.png", width: "25", height: "25"}
+						-else
+							%li
+								=image_tag(current_user.image, class: "circle responsive-img", id: "me-logo")
+						%li
+							=link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "btn red darken-4"
+					-else
+						%li
+							=link_to "Registrate", user_facebook_omniauth_authorize_path, class: "aves-effect waves-light btn indigo darken-4"
 
 	=react_component 'NavMain'
 	%div{style:" #{"display:none;" if alert.nil? && notice.nil?} "}
