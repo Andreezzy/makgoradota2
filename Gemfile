@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '~> 4.2', '>= 4.2.7.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
 gem 'mysql2', '~> 0.3.18', group: :development
@@ -38,7 +38,7 @@ gem 'omniauth-facebook'
 #React Gem
 gem 'react-rails'
 
-
+gem 'unicorn', '~> 5.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -57,6 +57,9 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  #Unicorn Gem
+  
 end
 
 ruby "2.2.5"

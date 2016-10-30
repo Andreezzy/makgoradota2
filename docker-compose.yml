@@ -5,6 +5,8 @@ services:
     container_name: makgora_mysql
     ports: 
       - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
     environment:
       MYSQL_DATABASE: makgora
       MYSQL_USER: makgora
@@ -12,14 +14,23 @@ services:
       MYSQL_ROOT_PASSWORD: rootmakgora
   rails:
     build: .
-    image: rails-4.2:1.0
+    image: rails:1.0
     container_name: makgora_rails
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
-    volumes:
-      - .:/makgoradota2
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
     links:
       - mysql
-    depends_on:
-      - mysql
+    volumes:
+      - .:/var/www/makgoradota2
+  nginx:
+    build: 
+      context: .
+      dockerfile: config/containers/Dockerfile
+    image: nginx-rails:1.0
+    container_name: makgora_nginx
+    volumes_from:
+      - rails
+    links:
+      - rails
+    ports:
+      - "80:80"
